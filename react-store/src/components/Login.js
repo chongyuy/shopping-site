@@ -1,24 +1,32 @@
 import React from "react";
+import "../css/app.scss";
+import "../css/style.scss";
 class Login extends React.Component {
   render() {
     return (
-      <form className="login-wrapper">
-        <div>
-          <label>Email</label>
-          <div>
-            <input type="text" placeholder="Email"></input>
+      <div className="login-wrapper">
+        <form className="box login-box">
+          <div className="field">
+            <label className="label">Email</label>
+            <div className="control">
+              <input className="input" type="text" placeholder="Email"></input>
+            </div>
           </div>
-        </div>
-        <div>
-          <label>Password</label>
-          <div>
-            <input type="text" placeholder="Password"></input>
+          <div className="field">
+            <label className="label">Password</label>
+            <div className="control">
+              <input
+                className="input"
+                type="text"
+                placeholder="Password"
+              ></input>
+            </div>
           </div>
-        </div>
-        <div>
-          <button>Login</button>
-        </div>
-      </form>
+          <div className="control">
+            <button className="button is-fullwidth is-primary">Login</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }
