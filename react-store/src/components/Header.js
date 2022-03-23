@@ -6,7 +6,7 @@ class Header extends React.Component {
       return(
         <span className="nickname">
           <i className="far fa-user"></i>
-          <span class="user_name">   {this.props.nickname}</span>
+          <span className="user_name">   {this.props.nickname}</span>
           
          </span>
       )
