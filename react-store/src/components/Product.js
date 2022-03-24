@@ -2,11 +2,13 @@ import react from "react";
 import formatPrice from "commons/helper";
 function Product(props){
     const status = props.product.status
+
     const _pClass = {
-        avaliable: 'product',
-        unavaliable: 'product out-stock'
+        available: 'product',
+        unavailable: 'product out-stock'
     }
     return(
+        
         <div className={_pClass[status]}>
             <div className="p-content">
                 <div className="img-wrapper">
@@ -20,12 +22,13 @@ function Product(props){
             </div>
             <div className="p-footer">
                 <p className="price">{formatPrice(props.product.price)}</p>
-                <button className="add-cart" disabled={status==='unavaliable'}>
+                <button className="add-cart" disabled={status==='unavailable'}>
                     <i className="fas fa-shopping-cart"></i>
                     <i className="fas fa-exclamation"></i>
                 </button>
             </div>
         </div>
     );
+
 }
 export default Product;
