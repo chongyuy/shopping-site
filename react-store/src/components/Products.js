@@ -59,7 +59,7 @@ class Products extends React.Component{
                     {
                         this.products.map(p => {
                             return(
-                                <div className="column is-3" key={p.id}>
+                            <div className="column is-3" key={p.id}>
                                 <Product product={p}></Product>
                             </div>
                             )
@@ -70,7 +70,6 @@ class Products extends React.Component{
                 </div>
             </div>
             </div>
-
         )
     }
 }

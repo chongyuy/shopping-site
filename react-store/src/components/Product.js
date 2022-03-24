@@ -7,7 +7,6 @@ function Product(props){
         unavaliable: 'product out-stock'
     }
     return(
-        
         <div className={_pClass[status]}>
             <div className="p-content">
                 <div className="img-wrapper">
@@ -28,6 +27,5 @@ function Product(props){
             </div>
         </div>
     );
-
 }
 export default Product;
