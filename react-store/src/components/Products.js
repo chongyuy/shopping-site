@@ -2,11 +2,11 @@ import React from 'react'
 import ToolBox from './ToolBox';
 import Product from './Product';
 import { useState, useEffect }from "react";
-import Axios from 'axios';
+import Axios from 'commons/axios';
 function Products (){
     const [listOfProducts, setListOfProducts] = useState([]);
     useEffect(() => {
-        Axios.get("http://localhost:3001/getProducts").then((response) => {
+        Axios.get("/getProducts").then((response) => {
             setListOfProducts(response.data)
         })
     }, [])

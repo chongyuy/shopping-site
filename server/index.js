@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require('cors')
 const ProductModel = require("./models/products")
+const CartModel = require("./models/cart")
 const app = express()
 app.use(express.json());
 app.use(cors())
@@ -10,6 +11,15 @@ mongoose.connect(
 );
 app.get("/getProducts", (req, res) =>{
     ProductModel.find({}, (err, result) => {
+        if (err) {
+            res.json(err)
+        }else{
+            res.json(result)
+        }
+    })
+})
+app.get("/getCart", (req, res) =>{
+    CartModel.find({}, (err, result) => {
         if (err) {
             res.json(err)
         }else{
