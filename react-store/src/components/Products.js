@@ -5,15 +5,29 @@ import { useState, useEffect }from "react";
 import Axios from 'commons/axios';
 function Products (){
     const [listOfProducts, setListOfProducts] = useState([]);
+    const [sourceProducts, setsourceProducts] = useState([]);
     useEffect(() => {
         Axios.get("/getProducts").then((response) => {
             setListOfProducts(response.data)
+            setsourceProducts(response.data)
         })
     }, [])
-    console.log(listOfProducts)
+    //search
+    function search(text){
+        //Get new array
+        let _products = [...sourceProducts]
+        _products = _products.filter(p => {
+            //name: Abcd test: ab ===>['Ab']
+            //text: '' ==> ["", "", "", ""]
+        const matchArray = p.name.match(new RegExp(text, 'gi'))
+        // console.log(matchArray)
+        return !!matchArray
+        });
+        setListOfProducts(_products)
+    }
         return (
             <div>
-            <ToolBox></ToolBox>
+            <ToolBox search={search}></ToolBox>
 
             <div className='products'>
                 <div className="columns is-multiline is-desktop">
@@ -26,9 +40,7 @@ function Products (){
                             </div>
                             )
                         })
-                    }
-
-                        
+                    } 
                 </div>
             </div>
             </div>
